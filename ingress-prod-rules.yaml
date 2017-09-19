@@ -1,19 +1,16 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
+  namespace: prod
   annotations:
     ingress.bluemix.net/redirect-to-https: "true"
   name: rules-prod
 spec:
   tls:
   - hosts:
-    - nimble.uk-south.containers.mybluemix.net
-    secretName: nimble-cert
+    - beaware.uk-south.containers.mybluemix.net
+    secretName: default/beaware
   rules:
-  - host: nimble.uk-south.containers.mybluemix.net
+  - host: beaware.uk-south.containers.mybluemix.net
     http:
       paths:
-      - backend:
-          serviceName: marmotta
-          servicePort: 8080
-        path: /marmotta/
