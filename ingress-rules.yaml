@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    ingress.bluemix.net/redirect-to-https: "true"
+    #ingress.bluemix.net/rewrite-path: "serviceName=beaware-jenkins rewrite=/"
+  name: rules
+spec:
+  tls:
+  - hosts:
+    - jenkins.beaware.uk-south.containers.mybluemix.net
+    secretName: beaware
+  rules:
+  - host: jenkins.beaware.uk-south.containers.mybluemix.net
+    http:
+      paths:
+      - backend:
+          serviceName: beaware-jenkins
+          servicePort: 8080
+        path: /

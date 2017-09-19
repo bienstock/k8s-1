@@ -1,0 +1,49 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: jenkins-master
+    release: "2.60.3"
+    component: beaware-jenkins-master
+  name: beaware-jenkins
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: beaware-jenkins-master
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  revisionHistoryLimit: 5
+  template:
+    metadata:
+      labels:
+        app: jenkins-master
+        release: "2.60.3"
+        component: beaware-jenkins-master
+    spec:
+      containers:
+      - image: jenkins/jenkins:2.60.3
+        imagePullPolicy: Always
+        name: beaware-jenkins
+        ports:
+        - containerPort: 8080
+          name: http
+          protocol: TCP
+        - containerPort: 50000
+          name: slavelistener
+          protocol: TCP
+        resources:
+          requests:
+            cpu: 1000m
+            memory: 4Gi
+        volumeMounts:
+        - mountPath: /var/jenkins_home
+          name: jenkins-home
+      restartPolicy: Always
+      volumes:
+      - name: jenkins-home
+        persistentVolumeClaim:
+          claimName: jenkins-data
