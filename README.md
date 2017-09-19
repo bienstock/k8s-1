@@ -1,4 +1,4 @@
-# Nimble Kubernetes applications
+# beAware Kubernetes applications
 ### How to expose new service
 1. Edit the ingress-prod-rules.yaml
 2. Add the new service as "backend"
@@ -32,10 +32,10 @@ metadata:
 spec:
   tls:
   - hosts:
-    - nimble.uk-south.containers.mybluemix.net
-    secretName: nimble-cert
+    - beaware.uk-south.containers.mybluemix.net
+    secretName: 
   rules:
-  - host: nimble.uk-south.containers.mybluemix.net
+  - host: beaware.uk-south.containers.mybluemix.net
     http:
       paths:
         - backend:
