@@ -4,7 +4,8 @@ metadata:
   namespace: prod
   annotations:
     ingress.bluemix.net/redirect-to-https: "true"
-  name: rules-prod
+  # Change to your application name
+  name: <YOUR_APP_NAME>
 spec:
   tls:
   - hosts:
@@ -14,3 +15,11 @@ spec:
   - host: beaware.uk-south.containers.mybluemix.net
     http:
       paths:
+      - backend:
+          # Change to your service name (kubernetes service)
+          serviceName: <SERVICE_NAME>
+          Change to your service port
+          servicePort: <SERVICEPORT>
+          # URL Suffix for example "/my-service"
+        path: <URL_SUFFIX>
+
