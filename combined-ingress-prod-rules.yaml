@@ -1,0 +1,32 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  namespace: prod
+  annotations:
+    # ingress.bluemix.net/redirect-to-https: "true"
+    ingress.bluemix.net/rewrite-path: |
+      serviceName=video-analysis rewrite=/;
+      serviceName=social-media-annotation-tool rewrite=/;
+      serviceName=sensor-things-server rewrite=/;
+  name: rules-prod
+spec:
+  # tls:
+  # - hosts:
+  #   - beaware.uk-south.containers.mybluemix.net
+    # secretName: beaware-cert
+  rules:
+  - host: beaware.uk-south.containers.mybluemix.net
+    http:
+      paths:
+        - path: /video-analysis/
+          backend:
+            serviceName: video-analysis
+            servicePort: 7777
+        - path: /social-media-annotation-tool/
+          backend:
+            serviceName: social-media-annotation-tool
+            servicePort: 2020
+        - path: /sensor-things-server/
+          backend:
+            serviceName: sensor-things-server
+            servicePort: 8080  
