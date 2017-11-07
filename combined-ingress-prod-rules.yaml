@@ -13,7 +13,7 @@ spec:
    tls:
    - hosts:
      - beaware.uk-south.containers.mybluemix.net
-       secretName: beaware
+     secretName: beaware
     # secretName: beaware-cert
   rules:
   - host: beaware.uk-south.containers.mybluemix.net
