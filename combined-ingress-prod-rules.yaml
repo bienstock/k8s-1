@@ -3,16 +3,17 @@ kind: Ingress
 metadata:
   namespace: prod
   annotations:
-    # ingress.bluemix.net/redirect-to-https: "true"
+    ingress.bluemix.net/redirect-to-https: "true"
     ingress.bluemix.net/rewrite-path: |
       serviceName=video-analysis rewrite=/;
       serviceName=social-media-annotation-tool rewrite=/;
       serviceName=sensor-things-server rewrite=/;
   name: rules-prod
 spec:
-  # tls:
-  # - hosts:
-  #   - beaware.uk-south.containers.mybluemix.net
+   tls:
+   - hosts:
+     - beaware.uk-south.containers.mybluemix.net
+       secretName: beaware
     # secretName: beaware-cert
   rules:
   - host: beaware.uk-south.containers.mybluemix.net
