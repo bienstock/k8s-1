@@ -9,7 +9,6 @@ metadata:
       serviceName=social-media-annotation-tool rewrite=/;
       serviceName=sensor-things-server rewrite=/;
       serviceName=mobileapp rewrite=/browser/www/;
-      serviceName=knowledgebase rewrite=/;
   name: rules-prod
 spec:
   tls:
