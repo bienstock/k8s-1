@@ -29,4 +29,8 @@ spec:
         - path: /sensor-things-server/
           backend:
             serviceName: sensor-things-server
-            servicePort: 8080  
+            servicePort: 8080
+        - path: /mobileapp/
+          backend:
+            serviceName: mobileapp
+            servicePort: 8000
