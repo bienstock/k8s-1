@@ -8,6 +8,7 @@ metadata:
       serviceName=video-analysis rewrite=/;
       serviceName=social-media-annotation-tool rewrite=/;
       serviceName=sensor-things-server rewrite=/;
+      serviceName=mobileapp rewrite=/browser/www/;
   name: rules-prod
 spec:
   tls:
