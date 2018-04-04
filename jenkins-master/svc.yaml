@@ -4,7 +4,7 @@ metadata:
   labels:
     app: jenkins-master
     component: beaware-jenkins-master
-    release: "2.60.3"
+    release: "2.89.4"
   name: beaware-jenkins
 spec:
   ports:
