@@ -10,6 +10,7 @@ metadata:
       serviceName=social-media-annotation-tool rewrite=/;
       serviceName=sensor-things-server rewrite=/;
       serviceName=mobileapp rewrite=/browser/www/;
+      serviceName=object-store rewrite=/;
   name: rules-prod
 spec:
   tls:
@@ -52,3 +53,7 @@ spec:
           backend:
             serviceName: knowledgebase
             servicePort: 80
+        - path: /object-store/
+          backend:
+            serviceName: object-store
+            servicePort: 8080
