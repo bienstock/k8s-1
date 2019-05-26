@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   labels:
     app: jenkins-master
-    release: "2.121.2"
+    release: "2.164.3"
     component: beaware-jenkins-master
   name: beaware-jenkins
 spec:
@@ -21,11 +21,11 @@ spec:
     metadata:
       labels:
         app: jenkins-master
-        release: "2.121.2"
+        release: "2.164.3"
         component: beaware-jenkins-master
     spec:
       containers:
-      - image: jenkins/jenkins:2.121.2
+      - image: jenkins/jenkins:2.164.3
         imagePullPolicy: Always
         name: beaware-jenkins
         ports:
